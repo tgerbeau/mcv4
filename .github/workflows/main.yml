@@ -28,7 +28,7 @@ jobs:
           record: true
           parallel: true
           group: 'Actions example'
-          env: 'BASEURL=${{ secrets.BASEURL }}, USERNAME: ${{ secrets.USERNAME }}, PASSWORD: ${{ secrets.PASSWORD }} '
+          env: 'BASEURL=${{ secrets.BASEURL }},USERNAME=${{ secrets.USERNAME }},PASSWORD=${{ secrets.PASSWORD }}'
                 
         env:
           # pass the Dashboard record key as an environment variable
