@@ -28,7 +28,8 @@ jobs:
           record: true
           parallel: true
           group: 'Actions example'
-          env: 'host=prod'
+          env: 'BASEURL=${{ secrets.BASEURL }}, USERNAME: ${{ secrets.USERNAME }}, PASSWORD: ${{ secrets.PASSWORD }} '
+                
         env:
           # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
