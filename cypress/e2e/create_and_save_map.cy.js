@@ -39,7 +39,7 @@ describe('Test save map', () => {
             cy.get('.ol-buttons > [type="submit"]').click()
             
             //Click sur le menu 
-            cy.get('.fi-simple-user').click()  
+            cy.get('.fi-simple-user').click({force: true})  
             //Selectioner Le menu item "Mes cartes"
             cy.get('.submenu > ul > :nth-child(3) > a').click().then(($nav) => {
 
@@ -54,8 +54,10 @@ describe('Test save map', () => {
                 cy.get('.mc-list > .mc-search > [type="search"]').type ("This title " + x +  " is great, isn't it ?")
                 cy.get('.mc-list > .mc-search > .search').click()
 
+                cy.wait (3000)
+                //class="ol-ext-check ol-ext-checkbox small"    
                 //Vérifier que la nouvelle carte soit présente dans les résultats
-                cy.get('.checked-maps > .ol-ext-check > span').click() 
+                cy.get('.macarte > .ol-ext-check > span').click() 
                 cy.get('.actions > .button-accent').click({force: true})
                 cy.get('.ol-buttons > [type="submit"]').click()
                 cy.logout()
