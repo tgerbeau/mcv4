@@ -15,10 +15,6 @@ describe('Test save map', () => {
 
             //Double-Clique pour bypasser l'on-boading
             cy.contains('passer l\'aide').click()
-            
-            //Click on close button  
-            cy.get('.fmessage > .fi-close').click()
-
 
             //Sauvegarde
             cy.get('.fi-save').click()
@@ -54,7 +50,7 @@ describe('Test save map', () => {
                 cy.get('.mc-list > .mc-search > [type="search"]').type ("This title " + x +  " is great, isn't it ?")
                 cy.get('.mc-list > .mc-search > .search').click()
 
-                cy.wait (3000)
+                cy.wait (4000)
                 //class="ol-ext-check ol-ext-checkbox small"    
                 //Vérifier que la nouvelle carte soit présente dans les résultats
                 cy.get('.macarte > .ol-ext-check > span').click() 
