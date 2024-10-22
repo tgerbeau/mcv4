@@ -9,8 +9,8 @@ describe('/connexion', () => {
   it('Login + Localize address', () => {
 
     cy.login_request(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
-    cy.get('p.search > .IGNF > .search').type("36 quai des orfevres, 75001 Paris")
-    cy.get('p.search').contains("36 quai des orfèvres, 75001 Paris").click()
+    cy.get('p.search > .IGNF > .search').type("36 Quai des Orfèvres, 75001 Paris")
+    cy.get('p.search').contains("36 Quai des Orfèvres, 75001 Paris").click()
 
     //Click sur le bouton "Ne plus afficher"   
     cy.get('.dialog > .onbd-container > .showonboarding > .ol-ext-check > span').click()
