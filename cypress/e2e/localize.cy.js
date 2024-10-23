@@ -1,5 +1,10 @@
 describe('/connexion', () => {
+    let testData;
+
     before (function () { 
+        cy.fixture('testData.json').then((data) => {
+            testData = data;
+          });
         cy.login_request(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
     })
     beforeEach(()=>{
@@ -30,7 +35,7 @@ describe('/connexion', () => {
         cy.viewport(1000, 660)
         cy.get('.fi-location').click()
         cy.get('body').trigger('keydown', { keyCode: 122, which: 122 })
-        cy.get('.search-bar > .IGNF > .search', { timeout: 8000 }).type("36 Quai des orfèvres")
+        cy.get('.search-bar > .IGNF > .search', { timeout: 8000 }).type(testData.address)
         cy.contains("36 Quai des Orfèvres").click()
         cy.wait (6000)
         cy.compareSnapshot('map', 0.1)
